@@ -1,0 +1,17 @@
+version: 0.0
+os: linux
+files:
+    - source: /
+      destination: /var/www/html/test-php-20210226
+permissions:
+    - object: /var/www/html/test-php-20210226
+      pattern: "**"
+      owner: apache
+      group: apache
+      mode: 755
+      type:
+        - file
+hooks:
+    BeforeInstall:
+     - location: scripts/initialize.sh
+       runas: root
